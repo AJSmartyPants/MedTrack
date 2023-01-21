@@ -141,6 +141,8 @@ def scan(screen):
     sheet.set_all_column_widths(width = 200, only_set_if_too_small = False, redraw = True, recreate_selection_boxes = True)
     sheet.set_all_row_heights(height = 200, only_set_if_too_small = False, redraw = True, recreate_selection_boxes = True)
     #sheet.sheet_display_dimensions(total_rows = 2, total_columns = 3)
+    #sheet.set_sheet_data_and_display_dimensions(total_rows = 2, total_columns = 3)
+    sheet.height_and_width(height = 1000, width = 1000)
     sheet.set_cell_data(0, 0, value = text, set_copy = True, redraw = False)
     sheet.set_cell_data(0, 1, value = 'Enter your expiry date', set_copy = True, redraw = False)
     sheet.set_cell_data(0, 2, value = URL, set_copy = True, redraw = False)
