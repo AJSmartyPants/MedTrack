@@ -1,8 +1,10 @@
 from tkinter import *
+import tkinter as tk
 from PIL import Image, ImageTk
 import cv2
 import pytesseract
 import webview
+import tksheet
 
 #create the tkinter window
 
@@ -115,6 +117,31 @@ def scan():
     URL = baseURL + text
     webview.create_window('Medicine Information Results',URL)
     webview.start()
+    top = tk.Tk()
+    sheet = tksheet.Sheet(top)
+    sheet.grid()
+    sheet.headers(['Medicine Name (scanned)', 'Expiry Date', 'Information'])
+    sheet.set_sheet_data([[f"{ri+cj}" for cj in range(3)] for ri in range(1)])
+    # table enable choices listed below:
+    sheet.enable_bindings(("single_select",
+                           "row_select",
+                           "column_width_resize",
+                           "arrowkeys",
+                           "right_click_popup_menu",
+                           "rc_select",
+                           "rc_insert_row",
+                           "rc_delete_row",
+                           "copy",
+                           "cut",
+                           "paste",
+                           "delete",
+                           "undo",
+                           "edit_cell"))
+    sheet.set_all_cell_sizes_to_text()
+    sheet.set_cell_data(0, 0, value = text, set_copy = True, redraw = False)
+    sheet.set_cell_data(0, 1, value = 'Enter your expiry date', set_copy = True, redraw = False)
+    sheet.set_cell_data(0, 2, value = URL, set_copy = True, redraw = False)
+    top.mainloop()
 
 #Create the widgets and add functionality
 appiconimg = Label(root, image = appicon, bg = 'white')
