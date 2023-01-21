@@ -9,6 +9,8 @@ import webview
 root = Tk()
 root.configure(bg = 'white')
 root.state('zoomed')
+root.geometry("{0}x{1}+0+0".format(root.winfo_screenwidth(), root.winfo_screenheight()))
+#root.resizable(0,0)
 
 #Load the images
 
@@ -38,10 +40,15 @@ donicon = ImageTk.PhotoImage(dicon)
 
 #Create the functions
 
+def scan():
+    print('hello')
 
+def chat():
+    url = "https://console.dialogflow.com/api-client/demo/embedded/c4aa01ea-269e-448e-84d9-b3f537b01b85"
+    webview.create_window('MedTrack Chatbot',url)
+    webview.start()
 
 #Create the widgets and add functionality
-
 appiconimg = Label(root, image = appicon, bg = 'white')
 abtbn = Button(root, text = 'About', bg = 'white', borderwidth = 0, image = abticon, compound = TOP)
 insbn = Button(root, text = 'How to Use', bg = 'white', borderwidth = 0, image = insicon, compound = TOP)
@@ -52,7 +59,7 @@ hsb = Button(root, text = 'Scan', font=('Britannic Bold', 20, 'bold'), fg = '#77
 hib = Button(root, text = 'Information Library', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = infoicon, compound = BOTTOM)
 hcb = Button(root, text = 'Chatbot', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
-             activebackground = '#99FFFF', height = 250, image = chaticon, compound = BOTTOM)
+             activebackground = '#99FFFF', height = 250, image = chaticon, compound = BOTTOM, command = chat)
 hmb = Button(root, text = 'Medicines', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = medicon, compound = BOTTOM)
 
