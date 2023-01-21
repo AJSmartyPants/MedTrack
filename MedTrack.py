@@ -138,11 +138,12 @@ def scan(screen):
                            "delete",
                            "undo",
                            "edit_cell"))
-    sheet.set_all_cell_sizes_to_text()
+    sheet.set_all_column_widths(width = 200, only_set_if_too_small = False, redraw = True, recreate_selection_boxes = True)
+    sheet.set_all_row_heights(height = 200, only_set_if_too_small = False, redraw = True, recreate_selection_boxes = True)
+    #sheet.sheet_display_dimensions(total_rows = 2, total_columns = 3)
     sheet.set_cell_data(0, 0, value = text, set_copy = True, redraw = False)
     sheet.set_cell_data(0, 1, value = 'Enter your expiry date', set_copy = True, redraw = False)
     sheet.set_cell_data(0, 2, value = URL, set_copy = True, redraw = False)
-    sheet.set_options(expand_sheet_if_paste_too_big = True)
 
 #Create the widgets and add functionality
 appiconimg = Label(root, image = appicon, bg = 'white')
