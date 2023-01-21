@@ -40,9 +40,6 @@ donicon = ImageTk.PhotoImage(dicon)
 
 #Create the functions
 
-def scan():
-    print('hello')
-
 def chat():
     url = "https://console.dialogflow.com/api-client/demo/embedded/c4aa01ea-269e-448e-84d9-b3f537b01b85"
     webview.create_window('MedTrack Chatbot',url)
@@ -68,12 +65,56 @@ def info():
     info4.grid(row = 4, column = 0, sticky = 'w')
     info5.grid(row = 5, column = 0, sticky = 'w')
     infoscreen.mainloop()
-def infohs(s, r, t, x, w):
-    if tu.state() == 'normal':
-        print('button is hidden')
-    else:
-        tu = Label(s, text = t, font = ('Bahnschrift SemiBold', 16, 'normal'), fg = 'black', bg = '#feffba', wraplength = w, anchor = 'w')
-        tu.grid(row = r, column = 0, padx = x, sticky = 'w')
+#global ispressed
+#ispressed = 'false'
+#def infohs(s, r, t, x, w):
+#    tu = Label(s, text = t, font = ('Bahnschrift SemiBold', 16, 'normal'), fg = 'black', bg = '#feffba', wraplength = w, anchor = 'w')
+#    global ispressed
+    #tu.grid(row = r, column = 0, padx = x, sticky = 'w')
+#    if ispressed == 'false':
+#        tu.grid(row = r, column = 0, padx = x, sticky = 'w')
+#        ispressed = 'true'
+#    elif ispressed == 'true':
+#        tu.forget_grid()
+#        ispressed = 'false'
+#    print(ispressed)
+
+def scanscr():
+    scs = Tk()
+    scs.state('zoomed')
+    scs.title('Scan')
+    scanbn = Button(scs, text = "Scan", bg = '#89ABCD', command = scan)
+    scanbn.grid(row=0, column=0, padx=10, pady=10)
+    scs.mainloop()
+def scan():
+    # Open the default camera
+    cap = cv2.VideoCapture(0)
+
+    while True:
+        # Read a frame from the camera
+        ret, frame = cap.read()
+        # Display the frame
+        cv2.imshow("Camera", frame)
+        #Check if the user pressed 'q' to quit
+        if cv2.waitKey(1) & 0xFF == ord(' '):
+            cv2.imwrite("object.jpg", frame)
+            break
+    # Release the camera and close the window
+    cap.release()
+    cv2.destroyAllWindows()
+    cv2.imshow("Picture Taken", frame)
+    # Define the image variable that we will use to extract medicine info from
+    img = frame
+    grayimg = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    contrast_gray = cv2.convertScaleAbs(grayimg, alpha=1.5, beta=0)
+    cv2.imshow('Grayscale', contrast_gray)
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    text = pytesseract.image_to_string(contrast_gray, lang = 'eng')
+    print(text)
+    baseURL = "https://www.google.co.in/search?q="
+    URL = baseURL + text
+    webview.create_window('Medicine Information Results',URL)
+    webview.start()
 
 #Create the widgets and add functionality
 appiconimg = Label(root, image = appicon, bg = 'white')
@@ -82,7 +123,7 @@ insbn = Button(root, text = 'How to Use', bg = 'white', borderwidth = 0, image =
 donbn = Button(root, text = 'Donate', bg = 'white', borderwidth = 0, image = donicon, compound = TOP)
 title = Label(root, text = "Welcome to\rMedTrack!", font = ('Berlin Sans FB Demi', 30, 'bold'), fg = '#ff4d00', bg = 'white')
 hsb = Button(root, text = 'Scan', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
-             activebackground = '#99FFFF', height = 250, image = scanicon, compound = BOTTOM)
+             activebackground = '#99FFFF', height = 250, image = scanicon, compound = BOTTOM, command = scanscr)
 hib = Button(root, text = 'Information Library', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = infoicon, compound = BOTTOM, command = info)
 hcb = Button(root, text = 'Chatbot', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
