@@ -85,10 +85,11 @@ def scanscr():
     scs = Tk()
     scs.state('zoomed')
     scs.title('Scan')
-    scanbn = Button(scs, text = "Scan", bg = '#89ABCD', command = scan)
+    scanbn = Button(scs, text = "Scan", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
+                   activebackground = '#FFFF00', command = lambda: scan(scs))
     scanbn.grid(row=0, column=0, padx=10, pady=10)
     scs.mainloop()
-def scan():
+def scan(screen):
     # Open the default camera
     cap = cv2.VideoCapture(0)
 
@@ -117,8 +118,7 @@ def scan():
     URL = baseURL + text
     webview.create_window('Medicine Information Results',URL)
     webview.start()
-    top = tk.Tk()
-    sheet = tksheet.Sheet(top)
+    sheet = tksheet.Sheet(screen)
     sheet.grid()
     sheet.headers(['Medicine Name (scanned)', 'Expiry Date', 'Information'])
     sheet.set_sheet_data([[f"{ri+cj}" for cj in range(3)] for ri in range(1)])
@@ -141,7 +141,6 @@ def scan():
     sheet.set_cell_data(0, 0, value = text, set_copy = True, redraw = False)
     sheet.set_cell_data(0, 1, value = 'Enter your expiry date', set_copy = True, redraw = False)
     sheet.set_cell_data(0, 2, value = URL, set_copy = True, redraw = False)
-    top.mainloop()
 
 #Create the widgets and add functionality
 appiconimg = Label(root, image = appicon, bg = 'white')
