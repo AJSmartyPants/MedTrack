@@ -142,11 +142,41 @@ def scan(screen):
     sheet.set_all_row_heights(height = 200, only_set_if_too_small = False, redraw = True, recreate_selection_boxes = True)
     #sheet.sheet_display_dimensions(total_rows = 2, total_columns = 3)
     #sheet.set_sheet_data_and_display_dimensions(total_rows = 2, total_columns = 3)
-    sheet.height_and_width(height = 1000, width = 1000)
+    sheet.height_and_width(height = 300, width = 700)
     sheet.set_cell_data(0, 0, value = text, set_copy = True, redraw = False)
     sheet.set_cell_data(0, 1, value = 'Enter your expiry date', set_copy = True, redraw = False)
     sheet.set_cell_data(0, 2, value = URL, set_copy = True, redraw = False)
-
+    submitbn = Button(screen, text = "Submit", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
+                   activebackground = '#FFFF00', command = lambda: createnewrow(sheet))
+    submitbn.grid()
+    global newrow
+    #newrow = sheet.get_row_data(0, return_copy = True)
+    #sheet.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False,
+    #       redraw = False)
+global medsheet
+def medicines():
+    global newrow
+    msc = Tk()
+    msc.state('zoomed')
+    msc.title('Medicines Catalog')
+    medsheet = tksheet.Sheet(msc)
+    medsheet.grid()
+    medsheet.headers(['Medicine Name (scanned)', 'Expiry Date', 'Information'])
+    medsheet.set_sheet_data([[f"{ri+cj}" for cj in range(3)] for ri in range(0)])
+    medsheet.set_all_column_widths(width = 200, only_set_if_too_small = False, redraw = True, recreate_selection_boxes = True)
+    medsheet.set_all_row_heights(height = 200, only_set_if_too_small = False, redraw = True, recreate_selection_boxes = True)
+    medsheet.height_and_width(height = 300, width = 700)
+    addnewrow(msc)
+    msc.mainloop()
+def createnewrow(s):
+    global newrow
+    newrow = s.get_row_data(0, return_copy = True)
+    #medsheet.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = False)
+def addnewrow(sh):
+    global newrow
+    newrow.trace('w', addnewrow(medsheet))
+    sh.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = False)
+    
 #Create the widgets and add functionality
 appiconimg = Label(root, image = appicon, bg = 'white')
 abtbn = Button(root, text = 'About', bg = 'white', borderwidth = 0, image = abticon, compound = TOP)
@@ -160,7 +190,7 @@ hib = Button(root, text = 'Information Library', font=('Britannic Bold', 20, 'bo
 hcb = Button(root, text = 'Chatbot', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = chaticon, compound = BOTTOM, command = chat)
 hmb = Button(root, text = 'Medicines', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
-             activebackground = '#99FFFF', height = 250, image = medicon, compound = BOTTOM)
+             activebackground = '#99FFFF', height = 250, image = medicon, compound = BOTTOM, command = medicines)
 
 appiconimg.grid(row = 0, column = 0, sticky = 'w')
 title.grid(row = 0, column = 1, sticky = 'w')
