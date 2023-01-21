@@ -47,6 +47,33 @@ def chat():
     url = "https://console.dialogflow.com/api-client/demo/embedded/c4aa01ea-269e-448e-84d9-b3f537b01b85"
     webview.create_window('MedTrack Chatbot',url)
     webview.start()
+def info():
+    infoscreen = Tk()
+    infoscreen.configure(bg = '#feffba')
+    isdetails = Label(infoscreen, text = "This is the information library. Here, you can find home remedies for some common ailments. Do keep in mind that we only provide suggestions that are verified by medical experts, and if you are allergic to any remedies, please do not take them. In case the remedies cause any negative reactions in the body, immediately stop taking them and consult a doctor. If the remedies do not benefit you within 4-7 days, consult a doctor.", font = ('Britannic Bold', 20, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1300)
+    isdetails.grid(row = 0, column = 0, sticky = 'w')
+    info1 = Button(infoscreen, text = "Cough", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
+                   activebackground = '#FFFF00', command = lambda: infohs(infoscreen, 1, "A cough is your body's way of responding when something irritates your throat or airways. An irritant stimulates nerves that send a message to your brain. The brain then tells muscles in your chest and abdomen to push air out of your lungs to force out the irritant. An occasional cough is normal and healthy. A cough that persists for several weeks or one that brings up discolored or bloody mucus may indicate a condition that needs medical attention. At times, coughing can be very forceful. Prolonged, vigorous coughing can irritate the lungs and cause even more coughing. It is also exhausting and can cause sleeplessness, dizziness or fainting, headaches, urinary incontinence, vomiting, and even broken ribs.", 100, 1200))
+    info2 = Button(infoscreen, text = "Fever", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
+                   activebackground = '#FFFF00')
+    info3 = Button(infoscreen, text = "Cold", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
+                   activebackground = '#FFFF00')
+    info4 = Button(infoscreen, text = "Diarrhea", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
+                   activebackground = '#FFFF00')
+    info5 = Button(infoscreen, text = "Abnormal levels of dandruff", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
+                   activebackground = '#FFFF00')
+    info1.grid(row = 1, column = 0, sticky = 'w')
+    info2.grid(row = 2, column = 0, sticky = 'w')
+    info3.grid(row = 3, column = 0, sticky = 'w')
+    info4.grid(row = 4, column = 0, sticky = 'w')
+    info5.grid(row = 5, column = 0, sticky = 'w')
+    infoscreen.mainloop()
+def infohs(s, r, t, x, w):
+    if tu.state() == 'normal':
+        print('button is hidden')
+    else:
+        tu = Label(s, text = t, font = ('Bahnschrift SemiBold', 16, 'normal'), fg = 'black', bg = '#feffba', wraplength = w, anchor = 'w')
+        tu.grid(row = r, column = 0, padx = x, sticky = 'w')
 
 #Create the widgets and add functionality
 appiconimg = Label(root, image = appicon, bg = 'white')
@@ -57,7 +84,7 @@ title = Label(root, text = "Welcome to\rMedTrack!", font = ('Berlin Sans FB Demi
 hsb = Button(root, text = 'Scan', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = scanicon, compound = BOTTOM)
 hib = Button(root, text = 'Information Library', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
-             activebackground = '#99FFFF', height = 250, image = infoicon, compound = BOTTOM)
+             activebackground = '#99FFFF', height = 250, image = infoicon, compound = BOTTOM, command = info)
 hcb = Button(root, text = 'Chatbot', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = chaticon, compound = BOTTOM, command = chat)
 hmb = Button(root, text = 'Medicines', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
