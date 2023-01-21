@@ -67,19 +67,20 @@ def info():
     info4.grid(row = 4, column = 0, sticky = 'w')
     info5.grid(row = 5, column = 0, sticky = 'w')
     infoscreen.mainloop()
-#global ispressed
-#ispressed = 'false'
-#def infohs(s, r, t, x, w):
-#    tu = Label(s, text = t, font = ('Bahnschrift SemiBold', 16, 'normal'), fg = 'black', bg = '#feffba', wraplength = w, anchor = 'w')
-#    global ispressed
+global ispressed
+ispressed = 'false'
+def infohs(s, r, t, x, w):
+    global tu
+    tu = Label(s, text = t, font = ('Bahnschrift SemiBold', 16, 'normal'), fg = 'black', bg = '#feffba', wraplength = w, anchor = 'w')
+    global ispressed
     #tu.grid(row = r, column = 0, padx = x, sticky = 'w')
-#    if ispressed == 'false':
-#        tu.grid(row = r, column = 0, padx = x, sticky = 'w')
-#        ispressed = 'true'
-#    elif ispressed == 'true':
-#        tu.forget_grid()
-#        ispressed = 'false'
-#    print(ispressed)
+    if ispressed == 'false':
+        tu.grid(row = r, column = 0, padx = x, sticky = 'w')
+        ispressed = 'true'
+    elif ispressed == 'true':
+        tu.destroy()
+        ispressed = 'false'
+    print(ispressed)
 
 def scanscr():
     scs = Tk()
@@ -141,6 +142,7 @@ def scan(screen):
     sheet.set_cell_data(0, 0, value = text, set_copy = True, redraw = False)
     sheet.set_cell_data(0, 1, value = 'Enter your expiry date', set_copy = True, redraw = False)
     sheet.set_cell_data(0, 2, value = URL, set_copy = True, redraw = False)
+    sheet.set_options(expand_sheet_if_paste_too_big = True)
 
 #Create the widgets and add functionality
 appiconimg = Label(root, image = appicon, bg = 'white')
