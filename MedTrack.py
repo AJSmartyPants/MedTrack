@@ -153,9 +153,11 @@ def scan(screen):
     #newrow = sheet.get_row_data(0, return_copy = True)
     #sheet.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False,
     #       redraw = False)
-global medsheet
+
 def medicines():
     global newrow
+    global medsheet
+    print('hello medicines')
     msc = Tk()
     msc.state('zoomed')
     msc.title('Medicines Catalog')
@@ -166,16 +168,15 @@ def medicines():
     medsheet.set_all_column_widths(width = 200, only_set_if_too_small = False, redraw = True, recreate_selection_boxes = True)
     medsheet.set_all_row_heights(height = 200, only_set_if_too_small = False, redraw = True, recreate_selection_boxes = True)
     medsheet.height_and_width(height = 300, width = 700)
-    addnewrow(msc)
     msc.mainloop()
 def createnewrow(s):
     global newrow
+    print('hellonewrow')
     newrow = s.get_row_data(0, return_copy = True)
-    #medsheet.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = False)
-def addnewrow(sh):
-    global newrow
-    newrow.trace('w', addnewrow(medsheet))
-    sh.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = False)
+    medsheet.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = True)
+#def addnewrow(sh):
+#    global newrow
+#    sh.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = False)
     
 #Create the widgets and add functionality
 appiconimg = Label(root, image = appicon, bg = 'white')
