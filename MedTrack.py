@@ -12,7 +12,7 @@ root.state('zoomed')
 
 #Load the images
 
-aicon = Image.open(r"C:\Users\tinao\OneDrive\Desktop\MedTrack\MedTrackGithub\Images\MedTrackAppIcon.png").resize((70, 70), Image.LANCZOS)
+aicon = Image.open(r"C:\Users\tinao\OneDrive\Desktop\MedTrack\MedTrackGithub\Images\MedTrackAppIcon.png").resize((100, 100), Image.LANCZOS)
 appicon = ImageTk.PhotoImage(aicon)
 
 sicon = Image.open(r"C:\Users\tinao\OneDrive\Desktop\MedTrack\MedTrackGithub\Images\ScanIcon.png").resize((150, 150), Image.LANCZOS)
@@ -27,13 +27,25 @@ chaticon = ImageTk.PhotoImage(cicon)
 micon = Image.open(r"C:\Users\tinao\OneDrive\Desktop\MedTrack\MedTrackGithub\Images\MedIcon.png").resize((150, 150), Image.LANCZOS)
 medicon = ImageTk.PhotoImage(micon)
 
+abicon = Image.open(r"C:\Users\tinao\OneDrive\Desktop\MedTrack\MedTrackGithub\Images\AboutIcon.png").resize((60, 60), Image.LANCZOS)
+abticon = ImageTk.PhotoImage(abicon)
+
+inicon = Image.open(r"C:\Users\tinao\OneDrive\Desktop\MedTrack\MedTrackGithub\Images\InstructionsIcon.png").resize((60, 60), Image.LANCZOS)
+insicon = ImageTk.PhotoImage(inicon)
+
+dicon = Image.open(r"C:\Users\tinao\OneDrive\Desktop\MedTrack\MedTrackGithub\Images\DonationIcon.png").resize((60, 60), Image.LANCZOS)
+donicon = ImageTk.PhotoImage(dicon)
+
 #Create the functions
 
 
 
 #Create the widgets and add functionality
 
-appiconimg = Label(root, image = appicon)
+appiconimg = Label(root, image = appicon, bg = 'white')
+abtbn = Button(root, text = 'About', bg = 'white', borderwidth = 0, image = abticon, compound = TOP)
+insbn = Button(root, text = 'How to Use', bg = 'white', borderwidth = 0, image = insicon, compound = TOP)
+donbn = Button(root, text = 'Donate', bg = 'white', borderwidth = 0, image = donicon, compound = TOP)
 title = Label(root, text = "Welcome to\rMedTrack!", font = ('Berlin Sans FB Demi', 30, 'bold'), fg = '#ff4d00', bg = 'white')
 hsb = Button(root, text = 'Scan', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = scanicon, compound = BOTTOM)
@@ -46,6 +58,9 @@ hmb = Button(root, text = 'Medicines', font=('Britannic Bold', 20, 'bold'), fg =
 
 appiconimg.grid(row = 0, column = 0, sticky = 'w')
 title.grid(row = 0, column = 1, sticky = 'w')
+abtbn.grid(row = 0, column = 2, sticky = 'w')
+insbn.grid(row = 0, column = 3, sticky = 'w')
+donbn.grid(row = 0, column = 4, sticky = 'w')
 hsb.grid(row = 1, column = 0, sticky = 'w', pady = 20)
 hib.grid(row = 1, column = 1, sticky = 'w', padx = 10, pady = 20)
 hcb.grid(row = 1, column = 2, sticky = 'w', padx = 10, pady = 20)
