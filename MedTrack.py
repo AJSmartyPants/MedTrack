@@ -49,23 +49,21 @@ def chat():
 def info():
     infoscreen = Tk()
     infoscreen.configure(bg = '#feffba')
+    
     isdetails = Label(infoscreen, text = "This is the information library. Here, you can find home remedies for some common ailments. Do keep in mind that we only provide suggestions that are verified by medical experts, and if you are allergic to any remedies, please do not take them. In case the remedies cause any negative reactions in the body, immediately stop taking them and consult a doctor. If the remedies do not benefit you within 4-7 days, consult a doctor.", font = ('Britannic Bold', 20, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1300)
     isdetails.grid(row = 0, column = 0, sticky = 'w')
-    info1 = Button(infoscreen, text = "Cough", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
-                   activebackground = '#FFFF00', command = lambda: infohs(infoscreen, 1, "A cough is your body's way of responding when something irritates your throat or airways. An irritant stimulates nerves that send a message to your brain. The brain then tells muscles in your chest and abdomen to push air out of your lungs to force out the irritant. An occasional cough is normal and healthy. A cough that persists for several weeks or one that brings up discolored or bloody mucus may indicate a condition that needs medical attention. At times, coughing can be very forceful. Prolonged, vigorous coughing can irritate the lungs and cause even more coughing. It is also exhausting and can cause sleeplessness, dizziness or fainting, headaches, urinary incontinence, vomiting, and even broken ribs.", 100, 1200))
-    info2 = Button(infoscreen, text = "Fever", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
-                   activebackground = '#FFFF00')
-    info3 = Button(infoscreen, text = "Cold", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
-                   activebackground = '#FFFF00')
-    info4 = Button(infoscreen, text = "Diarrhea", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
-                   activebackground = '#FFFF00')
-    info5 = Button(infoscreen, text = "Abnormal levels of dandruff", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
-                   activebackground = '#FFFF00')
-    info1.grid(row = 1, column = 0, sticky = 'w')
-    info2.grid(row = 2, column = 0, sticky = 'w')
-    info3.grid(row = 3, column = 0, sticky = 'w')
-    info4.grid(row = 4, column = 0, sticky = 'w')
-    info5.grid(row = 5, column = 0, sticky = 'w')
+    
+    infotext = Label(infoscreen, text = "Cough: A cough is your body's way of responding when something irritates your throat or airways. An irritant stimulates nerves that send a message to your brain. The brain then tells muscles in your chest and abdomen to push air out of your lungs to force out the irritant. An occasional cough is normal and healthy. A cough that persists for several weeks or one that brings up discolored or bloody mucus may indicate a condition that needs medical attention. At times, coughing can be very forceful. Prolonged, vigorous coughing can irritate the lungs and cause even more coughing. It is also exhausting and can cause sleeplessness, dizziness or fainting, headaches, urinary incontinence, vomiting, and even broken ribs. Age 6 months to 1 year. Give warm clear fluids (such as apple juice or lemonade). Dose: 1-2 teaspoons (5-10 mL) four times per day when coughing. Under 3 months, see your child's doctor. Caution: Do not use honey until 1 year old. Age 1 year and older. Use Honey ½ to 1 teaspoon (2 to 5 mL) as needed. It thins the secretions and loosens the cough. If you don't have honey, you can use corn syrup. Research shows that honey works better than cough syrups to reduce nighttime coughing. Can also offer warm lemonade or herbal teas. Amount: a few ounces (30 mL) each time. Age 6 years and older. Use Cough Drops to decrease the tickle in the throat. If you don't have any, you can use hard candy. Avoid cough drops before 6 years. Reason: risk of choking. Coughing fits. The warm mist from a shower can help. See a doctor immediately if you: Are choking and can't speak, Have difficulty breathing, Find it hard to swallow, Notice blood in your phlegm, Have persistent night sweats, fever and weight loss. Here are some other things that can help with a cough: Honey, Ginger, Hot fluids, Steam, Marshmallow root, Saltwater gargle, Bromelain, and Thyme.", 
+                     font = ('Bahnschrift SemiBold', 15, 'bold'), fg = '#ae00FF', bg = '#feffba', wraplength = 1250, justify = LEFT)#, command = lambda: infohs(infoscreen, 1,  100, 1200))
+    infotext2 = Label(infoscreen, text = "Runny nose: A runny nose can be caused by anything that irritates or inflames the nasal tissues. Infections — such as the common cold and influenza — allergies and various irritants may all cause a runny nose. It is excess drainage, ranging from a clear fluid to thick mucus, from the nose and nasal passages. Drinking plenty of water and using a humidifier may help to relieve symptoms. If the runny nose is caused by allergies, taking a non-sedating antihistamine may also help. See a doctor if you: Experience symptoms that last more than 10 days, Develop a high fever, Have green nasal discharge along with pain or fever, Also have asthma or emphysema or take immune-suppressing medications, and/or Notice blood in your nasal discharge or a persistent clear discharge after a head injury. Here are some other things that can help with a runny nose: Hot teas, Facial steam, Hot shower, Neti pot, Nasal spray, and Warm compress.", 
+                     font = ('Bahnschrift SemiBold', 15, 'bold'), fg = '#8a00FF', bg = '#feffba', wraplength = 1250, justify = LEFT)#, command = lambda: infohs(infoscreen, 1,  100, 1200))
+    infotext3 = Label(infoscreen, text = "Diarrhea: Loose, watery stools that occur more frequently than usual. Diarrhea is usually caused by a virus, or sometimes, contaminated food. Less frequently, it can be a sign of another disorder, such as inflammatory bowel disease or irritable bowel syndrome. Symptoms include frequent, loose, watery stools and stomach pain. Most cases clear on their own. Some infections may need antibiotics. Severe cases can cause enough dehydration to require extra fluid assistance. One tried-and-true diet for diarrhea is the BRAT diet: bananas, rice, applesauce, and toast. Low in fiber, bland, and starchy, these foods can help replace lost nutrients and firm up your stools. Also, replacing lost fluids with an oral rehydration solution (ORS) may help to prevent dehydration. If your diarrhea persists for longer than 2-3 days, consult a doctor ASAP.", 
+                     font = ('Bahnschrift SemiBold', 15, 'bold'), fg = '#6800FF', bg = '#feffba', wraplength = 1250, justify = LEFT)#, command = lambda: infohs(infoscreen, 1,  100, 1200))
+    #infotext.attributes('-alpha', 0)
+    infotext.grid(row = 1, column = 0, sticky = 'w')
+    infotext2.grid(row = 2, column = 0, sticky = 'w')
+    infotext3.grid(row = 3, column = 0, sticky = 'w')
+    
     infoscreen.mainloop()
 global ispressed
 ispressed = 'false'
@@ -86,9 +84,12 @@ def scanscr():
     scs = Tk()
     scs.state('zoomed')
     scs.title('Scan')
+    scs.configure(bg = '#feffba')
+    scandetails = Label(scs, text = "This is the scan feature. Here, you can take a picture of your medicine and get its results on Google. A table will be generated, in which you can manually enter the expiry date of your medicine. Please do not edit the URL. Please note that you should keep your medicine catalog open before submitting your medicine, and do not close it afterwards. In the future, I will make this catalog local.", font = ('Britannic Bold', 20, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1300)
+    scandetails.grid(row = 0, column = 0)
     scanbn = Button(scs, text = "Scan", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
                    activebackground = '#FFFF00', command = lambda: scan(scs))
-    scanbn.grid(row=0, column=0, padx=10, pady=10)
+    scanbn.grid(row=1, column=0, padx=10, pady=10)
     scs.mainloop()
 def scan(screen):
     # Open the default camera
@@ -114,7 +115,7 @@ def scan(screen):
     cv2.imshow('Grayscale', contrast_gray)
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
     text = pytesseract.image_to_string(contrast_gray, lang = 'eng')
-    print(text)
+    #print(text)
     baseURL = "https://www.google.co.in/search?q="
     URL = baseURL + text
     webview.create_window('Medicine Information Results',URL)
@@ -154,10 +155,10 @@ def scan(screen):
     #sheet.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False,
     #       redraw = False)
 
+medsheet = False
 def medicines():
     global newrow
     global medsheet
-    print('hello medicines')
     msc = Tk()
     msc.state('zoomed')
     msc.title('Medicines Catalog')
@@ -171,13 +172,16 @@ def medicines():
     msc.mainloop()
 def createnewrow(s):
     global newrow
-    print('hellonewrow')
     newrow = s.get_row_data(0, return_copy = True)
-    medsheet.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = True)
+    if medsheet:
+        medsheet.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = True)
+    else:
+        print('Please open the medicines page before submitting your medicine.')
 #def addnewrow(sh):
 #    global newrow
 #    sh.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = False)
-    
+
+
 #Create the widgets and add functionality
 appiconimg = Label(root, image = appicon, bg = 'white')
 abtbn = Button(root, text = 'About', bg = 'white', borderwidth = 0, image = abticon, compound = TOP)
