@@ -48,6 +48,7 @@ def chat():
     webview.start()
 def info():
     infoscreen = Tk()
+    infoscreen.state('zoomed')
     infoscreen.configure(bg = '#feffba')
     
     isdetails = Label(infoscreen, text = "This is the information library. Here, you can find home remedies for some common ailments. Do keep in mind that we only provide suggestions that are verified by medical experts, and if you are allergic to any remedies, please do not take them. In case the remedies cause any negative reactions in the body, immediately stop taking them and consult a doctor. If the remedies do not benefit you within 4-7 days, consult a doctor.", font = ('Britannic Bold', 20, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1300)
@@ -56,29 +57,29 @@ def info():
     infotext = Label(infoscreen, text = "Cough: A cough is your body's way of responding when something irritates your throat or airways. An irritant stimulates nerves that send a message to your brain. The brain then tells muscles in your chest and abdomen to push air out of your lungs to force out the irritant. An occasional cough is normal and healthy. A cough that persists for several weeks or one that brings up discolored or bloody mucus may indicate a condition that needs medical attention. At times, coughing can be very forceful. Prolonged, vigorous coughing can irritate the lungs and cause even more coughing. It is also exhausting and can cause sleeplessness, dizziness or fainting, headaches, urinary incontinence, vomiting, and even broken ribs. Age 6 months to 1 year. Give warm clear fluids (such as apple juice or lemonade). Dose: 1-2 teaspoons (5-10 mL) four times per day when coughing. Under 3 months, see your child's doctor. Caution: Do not use honey until 1 year old. Age 1 year and older. Use Honey ½ to 1 teaspoon (2 to 5 mL) as needed. It thins the secretions and loosens the cough. If you don't have honey, you can use corn syrup. Research shows that honey works better than cough syrups to reduce nighttime coughing. Can also offer warm lemonade or herbal teas. Amount: a few ounces (30 mL) each time. Age 6 years and older. Use Cough Drops to decrease the tickle in the throat. If you don't have any, you can use hard candy. Avoid cough drops before 6 years. Reason: risk of choking. Coughing fits. The warm mist from a shower can help. See a doctor immediately if you: Are choking and can't speak, Have difficulty breathing, Find it hard to swallow, Notice blood in your phlegm, Have persistent night sweats, fever and weight loss. Here are some other things that can help with a cough: Honey, Ginger, Hot fluids, Steam, Marshmallow root, Saltwater gargle, Bromelain, and Thyme.", 
                      font = ('Bahnschrift SemiBold', 15, 'bold'), fg = '#ae00FF', bg = '#feffba', wraplength = 1250, justify = LEFT)#, command = lambda: infohs(infoscreen, 1,  100, 1200))
     infotext2 = Label(infoscreen, text = "Runny nose: A runny nose can be caused by anything that irritates or inflames the nasal tissues. Infections — such as the common cold and influenza — allergies and various irritants may all cause a runny nose. It is excess drainage, ranging from a clear fluid to thick mucus, from the nose and nasal passages. Drinking plenty of water and using a humidifier may help to relieve symptoms. If the runny nose is caused by allergies, taking a non-sedating antihistamine may also help. See a doctor if you: Experience symptoms that last more than 10 days, Develop a high fever, Have green nasal discharge along with pain or fever, Also have asthma or emphysema or take immune-suppressing medications, and/or Notice blood in your nasal discharge or a persistent clear discharge after a head injury. Here are some other things that can help with a runny nose: Hot teas, Facial steam, Hot shower, Neti pot, Nasal spray, and Warm compress.", 
-                     font = ('Bahnschrift SemiBold', 15, 'bold'), fg = '#8a00FF', bg = '#feffba', wraplength = 1250, justify = LEFT)#, command = lambda: infohs(infoscreen, 1,  100, 1200))
+                     font = ('Bahnschrift SemiBold', 15, 'bold'), fg = '#5900FF', bg = '#feffba', wraplength = 1250, justify = LEFT)#, command = lambda: infohs(infoscreen, 1,  100, 1200))
     infotext3 = Label(infoscreen, text = "Diarrhea: Loose, watery stools that occur more frequently than usual. Diarrhea is usually caused by a virus, or sometimes, contaminated food. Less frequently, it can be a sign of another disorder, such as inflammatory bowel disease or irritable bowel syndrome. Symptoms include frequent, loose, watery stools and stomach pain. Most cases clear on their own. Some infections may need antibiotics. Severe cases can cause enough dehydration to require extra fluid assistance. One tried-and-true diet for diarrhea is the BRAT diet: bananas, rice, applesauce, and toast. Low in fiber, bland, and starchy, these foods can help replace lost nutrients and firm up your stools. Also, replacing lost fluids with an oral rehydration solution (ORS) may help to prevent dehydration. If your diarrhea persists for longer than 2-3 days, consult a doctor ASAP.", 
-                     font = ('Bahnschrift SemiBold', 15, 'bold'), fg = '#6800FF', bg = '#feffba', wraplength = 1250, justify = LEFT)#, command = lambda: infohs(infoscreen, 1,  100, 1200))
+                     font = ('Bahnschrift SemiBold', 15, 'bold'), fg = '#0400FF', bg = '#feffba', wraplength = 1250, justify = LEFT)#, command = lambda: infohs(infoscreen, 1,  100, 1200))
     #infotext.attributes('-alpha', 0)
     infotext.grid(row = 1, column = 0, sticky = 'w')
     infotext2.grid(row = 2, column = 0, sticky = 'w')
     infotext3.grid(row = 3, column = 0, sticky = 'w')
     
     infoscreen.mainloop()
-global ispressed
-ispressed = 'false'
-def infohs(s, r, t, x, w):
-    global tu
-    tu = Label(s, text = t, font = ('Bahnschrift SemiBold', 16, 'normal'), fg = 'black', bg = '#feffba', wraplength = w, anchor = 'w')
-    global ispressed
+#global ispressed
+#ispressed = 'false'
+#def infohs(s, r, t, x, w):
+#    global tu
+#    tu = Label(s, text = t, font = ('Bahnschrift SemiBold', 16, 'normal'), fg = 'black', bg = '#feffba', wraplength = w, anchor = 'w')
+#    global ispressed
     #tu.grid(row = r, column = 0, padx = x, sticky = 'w')
-    if ispressed == 'false':
-        tu.grid(row = r, column = 0, padx = x, sticky = 'w')
-        ispressed = 'true'
-    elif ispressed == 'true':
-        tu.destroy()
-        ispressed = 'false'
-    print(ispressed)
+#    if ispressed == 'false':
+#        tu.grid(row = r, column = 0, padx = x, sticky = 'w')
+#        ispressed = 'true'
+#   elif ispressed == 'true':
+#        tu.destroy()
+#        ispressed = 'false'
+#    print(ispressed)
 
 def scanscr():
     scs = Tk()
@@ -183,20 +184,23 @@ def createnewrow(s):
 def about():
     abtscreen = Tk()
     abtscreen.configure(bg = '#feffba')
+    abtscreen.state('zoomed')
     abttext = Label(abtscreen, text = "A rapidly increasing number of people are ingesting medicines and drugs in dangerous quantities, based on their own assumptions about healthcare. Most of us don’t have a proper way to track our medicines. It’s a common fact that people, nowadays, tend to believe that a simple Google search tells them all about their sickness and which medicine(s) to use to treat themselves. Instead of seeking professional help/advice, we are taking risks that can result in permanent damage. According to CNN, patient noncompliance is an epidemic. Over 50 percent of prescriptions written yearly are either taken incorrectly by the patient, or not taken at all. In the earlier times, 1 of 10 patients used to seek medication on the internet, but today that number has changed to 9 out of 10. Most of us aren’t getting the right answers, and how will they keep track of the real medicines that they actually have? The solution is MedTrack. MedTrack has 4 main features that add up to a perfect solution for this problem: Scan your medicine, information library, chatbot, and medicine history. The Scan and Medicine History features help you keep track of your medicines. Simply take a picture, enter the expiry date, and add the medicine to your catalog! In the future, I will save the Medicine History locally on the user’s device as I need to export it to a platform like ReactNative to make it a mobile application. I will also use webscraping (using a library like BeautifulSoup4) and NLP summarization tools (OpenAI is an example of an easy-to-use natural language processing tool) to get the summary of your medicine rather than the google search URL. The information library provides you instant and authentic information about generic ailments and their home remedies. Please read the disclaimer at the top before following advice. Finally, the chatbot allows you to ask anything about medicines and healthcare: It has questions and answers carefully curated from reliable consultation websites.",
                     font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
     #appiimg = Label(abtscreen, image = appicon, bg = '#feffba')
     #appiimg.grid(row = 1, column = 0)
+    Label(abtscreen, image = appicon).grid(row = 1, column = 0, sticky = 'nsew')
     abttext.grid(row = 0, column = 0, sticky = 'w')
     
     abtscreen.mainloop()
 def instr():
     inscreen = Tk()
     inscreen.configure(bg = '#feffba')
-    intext1 = Label(inscreen, text = "How to use Scan: Take a picture of your medicine and get its results on Google. A table will be generated, in which you can manually enter the expiry date of your medicine. Please do not edit the URL. Please note that you should keep your medicine catalog open before submitting your medicine, and do not close it afterwards. In the future, I will make this catalog local.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
-    intext2 = Label(inscreen, text = "How to use Information Library: In the information library, you can see some common ailments and their information & home remedies given. In the future, I will use webscraping and summarization to automate the information list rather than having to manually input the values.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
-    intext3 = Label(inscreen, text = "How to use Chatbot: When the chatbot opens, you can put it in full screen and ask all your questions.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
-    intext4 = Label(inscreen, text = "How to use Medicine History: The medicine history is currently a temporary record of the medicines you scan. Whenever you submit a medicine, a row with the medicine's data will be added for you to reference. In the future, I will save the medicine history locally and add features like 'delete medicine'. Note: When using the scan to add a medicine to your medicine history, open the medicine history first for visible results. Do not worry: This glitch will soon be resolved.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
+    inscreen.state('zoomed')
+    intext1 = Label(inscreen, text = "How to use Scan: Take a picture of your medicine and get its results on Google. A table will be generated, in which you can manually enter the expiry date of your medicine. Please do not edit the URL. Please note that you should keep your medicine catalog open before submitting your medicine, and do not close it afterwards. In the future, I will make this catalog local.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', justify = LEFT, wraplength = 1250)
+    intext2 = Label(inscreen, text = "How to use Information Library: In the information library, you can see some common ailments and their information & home remedies given. In the future, I will use webscraping and summarization to automate the information list rather than having to manually input the values.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', justify = LEFT, wraplength = 1250)
+    intext3 = Label(inscreen, text = "How to use Chatbot: When the chatbot opens, you can put it in full screen and ask all your questions.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', justify = LEFT, wraplength = 1250)
+    intext4 = Label(inscreen, text = "How to use Medicine History: The medicine history is currently a temporary record of the medicines you scan. Whenever you submit a medicine, a row with the medicine's data will be added for you to reference. In the future, I will save the medicine history locally and add features like 'delete medicine'. Note: When using the scan to add a medicine to your medicine history, open the medicine history first for visible results. Do not worry: This glitch will soon be resolved.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', justify = LEFT, wraplength = 1250)
 
     intext1.grid(row = 0, column = 0, sticky = 'w')
     intext2.grid(row = 1, column = 0, sticky = 'w')
