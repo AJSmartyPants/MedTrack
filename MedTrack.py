@@ -107,12 +107,12 @@ def scan(screen):
     # Release the camera and close the window
     cap.release()
     cv2.destroyAllWindows()
-    cv2.imshow("Picture Taken", frame)
+    #cv2.imshow("Picture Taken", frame)
     # Define the image variable that we will use to extract medicine info from
     img = frame
     grayimg = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     contrast_gray = cv2.convertScaleAbs(grayimg, alpha=1.5, beta=0)
-    cv2.imshow('Grayscale', contrast_gray)
+    #cv2.imshow('Grayscale', contrast_gray)
     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
     text = pytesseract.image_to_string(contrast_gray, lang = 'eng')
     #print(text)
@@ -185,16 +185,23 @@ def about():
     abtscreen.configure(bg = '#feffba')
     abttext = Label(abtscreen, text = "A rapidly increasing number of people are ingesting medicines and drugs in dangerous quantities, based on their own assumptions about healthcare. Most of us don’t have a proper way to track our medicines. It’s a common fact that people, nowadays, tend to believe that a simple Google search tells them all about their sickness and which medicine(s) to use to treat themselves. Instead of seeking professional help/advice, we are taking risks that can result in permanent damage. According to CNN, patient noncompliance is an epidemic. Over 50 percent of prescriptions written yearly are either taken incorrectly by the patient, or not taken at all. In the earlier times, 1 of 10 patients used to seek medication on the internet, but today that number has changed to 9 out of 10. Most of us aren’t getting the right answers, and how will they keep track of the real medicines that they actually have? The solution is MedTrack. MedTrack has 4 main features that add up to a perfect solution for this problem: Scan your medicine, information library, chatbot, and medicine history. The Scan and Medicine History features help you keep track of your medicines. Simply take a picture, enter the expiry date, and add the medicine to your catalog! In the future, I will save the Medicine History locally on the user’s device as I need to export it to a platform like ReactNative to make it a mobile application. I will also use webscraping (using a library like BeautifulSoup4) and NLP summarization tools (OpenAI is an example of an easy-to-use natural language processing tool) to get the summary of your medicine rather than the google search URL. The information library provides you instant and authentic information about generic ailments and their home remedies. Please read the disclaimer at the top before following advice. Finally, the chatbot allows you to ask anything about medicines and healthcare: It has questions and answers carefully curated from reliable consultation websites.",
                     font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
-    appiimg = Label(abtscreen, image = appicon, bg = '#feffba')
-    appiimg.grid(row = 1, column = 0)
+    #appiimg = Label(abtscreen, image = appicon, bg = '#feffba')
+    #appiimg.grid(row = 1, column = 0)
     abttext.grid(row = 0, column = 0, sticky = 'w')
     
     abtscreen.mainloop()
 def instr():
     inscreen = Tk()
     inscreen.configure(bg = '#feffba')
-    intext = Label(inscreen, text = "", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
-    intext.grid(row = 0, column = 0, sticky = 'w')
+    intext1 = Label(inscreen, text = "How to use Scan: Take a picture of your medicine and get its results on Google. A table will be generated, in which you can manually enter the expiry date of your medicine. Please do not edit the URL. Please note that you should keep your medicine catalog open before submitting your medicine, and do not close it afterwards. In the future, I will make this catalog local.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
+    intext2 = Label(inscreen, text = "How to use Information Library: In the information library, you can see some common ailments and their information & home remedies given. In the future, I will use webscraping and summarization to automate the information list rather than having to manually input the values.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
+    intext3 = Label(inscreen, text = "How to use Chatbot: When the chatbot opens, you can put it in full screen and ask all your questions.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
+    intext4 = Label(inscreen, text = "How to use Medicine History: The medicine history is currently a temporary record of the medicines you scan. Whenever you submit a medicine, a row with the medicine's data will be added for you to reference. In the future, I will save the medicine history locally and add features like 'delete medicine'. Note: When using the scan to add a medicine to your medicine history, open the medicine history first for visible results. Do not worry: This glitch will soon be resolved.", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
+
+    intext1.grid(row = 0, column = 0, sticky = 'w')
+    intext2.grid(row = 1, column = 0, sticky = 'w')
+    intext3.grid(row = 2, column = 0, sticky = 'w')
+    intext4.grid(row = 3, column = 0, sticky = 'w')
 def donate():
     donurl = "https://www.givingwhatwecan.org/donate/organizations"
     webview.create_window('Donate',donurl)
@@ -212,7 +219,7 @@ hib = Button(root, text = 'Information Library', font=('Britannic Bold', 20, 'bo
              activebackground = '#99FFFF', height = 250, image = infoicon, compound = BOTTOM, command = info)
 hcb = Button(root, text = 'Chatbot', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = chaticon, compound = BOTTOM, command = chat)
-hmb = Button(root, text = 'Medicines', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
+hmb = Button(root, text = 'Medicine History', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = medicon, compound = BOTTOM, command = medicines)
 
 appiconimg.grid(row = 0, column = 0, sticky = 'w')
