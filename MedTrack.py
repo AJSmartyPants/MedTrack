@@ -180,13 +180,31 @@ def createnewrow(s):
 #def addnewrow(sh):
 #    global newrow
 #    sh.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = False)
-
-
+def about():
+    abtscreen = Tk()
+    abtscreen.configure(bg = '#feffba')
+    abttext = Label(abtscreen, text = "A rapidly increasing number of people are ingesting medicines and drugs in dangerous quantities, based on their own assumptions about healthcare. Most of us don’t have a proper way to track our medicines. It’s a common fact that people, nowadays, tend to believe that a simple Google search tells them all about their sickness and which medicine(s) to use to treat themselves. Instead of seeking professional help/advice, we are taking risks that can result in permanent damage. According to CNN, patient noncompliance is an epidemic. Over 50 percent of prescriptions written yearly are either taken incorrectly by the patient, or not taken at all. In the earlier times, 1 of 10 patients used to seek medication on the internet, but today that number has changed to 9 out of 10. Most of us aren’t getting the right answers, and how will they keep track of the real medicines that they actually have? The solution is MedTrack. MedTrack has 4 main features that add up to a perfect solution for this problem: Scan your medicine, information library, chatbot, and medicine history. The Scan and Medicine History features help you keep track of your medicines. Simply take a picture, enter the expiry date, and add the medicine to your catalog! In the future, I will save the Medicine History locally on the user’s device as I need to export it to a platform like ReactNative to make it a mobile application. I will also use webscraping (using a library like BeautifulSoup4) and NLP summarization tools (OpenAI is an example of an easy-to-use natural language processing tool) to get the summary of your medicine rather than the google search URL. The information library provides you instant and authentic information about generic ailments and their home remedies. Please read the disclaimer at the top before following advice. Finally, the chatbot allows you to ask anything about medicines and healthcare: It has questions and answers carefully curated from reliable consultation websites.",
+                    font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
+    appiimg = Label(abtscreen, image = appicon, bg = '#feffba')
+    appiimg.grid(row = 1, column = 0)
+    abttext.grid(row = 0, column = 0, sticky = 'w')
+    
+    abtscreen.mainloop()
+def instr():
+    inscreen = Tk()
+    inscreen.configure(bg = '#feffba')
+    intext = Label(inscreen, text = "", font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
+    intext.grid(row = 0, column = 0, sticky = 'w')
+def donate():
+    donurl = "https://www.givingwhatwecan.org/donate/organizations"
+    webview.create_window('Donate',donurl)
+    webview.start()
+    
 #Create the widgets and add functionality
 appiconimg = Label(root, image = appicon, bg = 'white')
-abtbn = Button(root, text = 'About', bg = 'white', borderwidth = 0, image = abticon, compound = TOP)
-insbn = Button(root, text = 'How to Use', bg = 'white', borderwidth = 0, image = insicon, compound = TOP)
-donbn = Button(root, text = 'Donate', bg = 'white', borderwidth = 0, image = donicon, compound = TOP)
+abtbn = Button(root, text = 'About', bg = 'white', borderwidth = 0, image = abticon, compound = TOP, command = about)
+insbn = Button(root, text = 'How to Use', bg = 'white', borderwidth = 0, image = insicon, compound = TOP, command = instr)
+donbn = Button(root, text = 'Donate', bg = 'white', borderwidth = 0, image = donicon, compound = TOP, command = donate)
 title = Label(root, text = "Welcome to\rMedTrack!", font = ('Berlin Sans FB Demi', 30, 'bold'), fg = '#ff4d00', bg = 'white')
 hsb = Button(root, text = 'Scan', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = scanicon, compound = BOTTOM, command = scanscr)
