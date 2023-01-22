@@ -149,7 +149,7 @@ def scan(screen):
     sheet.set_cell_data(0, 1, value = 'Enter your expiry date', set_copy = True, redraw = False)
     sheet.set_cell_data(0, 2, value = URL, set_copy = True, redraw = False)
     submitbn = Button(screen, text = "Submit", font = ('Bahnschrift SemiBold', 20, 'bold'), fg = '#FFFF00', activeforeground = '#ae00ff', bg = '#ae00ff',
-                   activebackground = '#FFFF00', command = lambda: createnewrow(sheet))
+                   activebackground = '#FFFF00', command = lambda: [createnewrow(sheet), screen.destroy()])
     submitbn.grid()
     global newrow
     #newrow = sheet.get_row_data(0, return_copy = True)
@@ -178,6 +178,7 @@ def createnewrow(s):
         medsheet.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = True)
     else:
         print('Please open the medicines page before submitting your medicine.')
+    s.destroy()
 #def addnewrow(sh):
 #    global newrow
 #    sh.insert_row(values = newrow, idx = "end", height = 200, deselect_all = False, add_columns = False, redraw = False)
@@ -189,7 +190,7 @@ def about():
                     font = ('Britannic Bold', 15, 'normal'), fg = 'black', bg = '#feffba', wraplength = 1250)
     #appiimg = Label(abtscreen, image = appicon, bg = '#feffba')
     #appiimg.grid(row = 1, column = 0)
-    Label(abtscreen, image = appicon).grid(row = 1, column = 0, sticky = 'nsew')
+    #Label(abtscreen, image = appicon).grid(row = 1, column = 0, sticky = 'nsew')
     abttext.grid(row = 0, column = 0, sticky = 'w')
     
     abtscreen.mainloop()
