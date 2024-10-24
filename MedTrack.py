@@ -218,13 +218,13 @@ abtbn = Button(root, text = 'About', bg = 'white', borderwidth = 0, image = abti
 insbn = Button(root, text = 'How to Use', bg = 'white', borderwidth = 0, image = insicon, compound = TOP, command = instr)
 donbn = Button(root, text = 'Donate', bg = 'white', borderwidth = 0, image = donicon, compound = TOP, command = donate)
 title = Label(root, text = "Welcome to\rMedTrack!", font = ('Berlin Sans FB Demi', 30, 'bold'), fg = '#ff4d00', bg = 'white')
-hsb = Button(root, text = 'Scan', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
+hsb = Button(root, text = 'Scan', font=('Britannic Bold', 20, 'bold'), fg = '#000000', activeforeground = '#000000', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = scanicon, compound = BOTTOM, command = scanscr)
-hib = Button(root, text = 'Information Library', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
+hib = Button(root, text = 'Information Library', font=('Britannic Bold', 20, 'bold'), fg = '#000000', activeforeground = '#000000', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = infoicon, compound = BOTTOM, command = info)
-hcb = Button(root, text = 'Chatbot', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
+hcb = Button(root, text = 'Chatbot', font=('Britannic Bold', 20, 'bold'), fg = '#000000', activeforeground = '#000000', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = chaticon, compound = BOTTOM, command = chat)
-hmb = Button(root, text = 'Medicine History', font=('Britannic Bold', 20, 'bold'), fg = '#7700CC', activeforeground = '#0099FF', bg = '#9999FF',
+hmb = Button(root, text = 'Medicine History', font=('Britannic Bold', 20, 'bold'), fg = '#000000', activeforeground = '#000000', bg = '#9999FF',
              activebackground = '#99FFFF', height = 250, image = medicon, compound = BOTTOM, command = medicines)
 
 appiconimg.grid(row = 0, column = 0, sticky = 'w')
